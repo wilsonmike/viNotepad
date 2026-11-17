@@ -76,6 +76,24 @@ extern "C" __declspec(dllexport) void beNotified(SCNotification *notifyCode)
 		}
 		break;
 
+		case NPPN_READY:
+			vimReady();
+			break;
+
+		case NPPN_BUFFERACTIVATED:
+			vimBufferActivated();
+			break;
+
+		case SCN_MODIFIED:
+			if (notifyCode->modificationType & (SC_MOD_INSERTTEXT | SC_MOD_DELETETEXT))
+				vimTextChanged((HWND)notifyCode->nmhdr.hwndFrom, notifyCode->position, notifyCode->length, (notifyCode->modificationType & SC_MOD_INSERTTEXT) != 0);
+			break;
+
+		case SCN_UPDATEUI:
+			if (notifyCode->updated & SC_UPDATE_SELECTION)
+				vimSelectionChanged((HWND)notifyCode->nmhdr.hwndFrom);
+			break;
+
 		default:
 			return;
 	}

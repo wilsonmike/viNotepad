@@ -28,7 +28,7 @@
 //-------------------------------------//
 // Here define your plugin name
 //
-const TCHAR NPP_PLUGIN_NAME[] = TEXT("vi_bindings");
+const TCHAR NPP_PLUGIN_NAME[] = TEXT("viNotepad");
 
 //-----------------------------------------------//
 //-- STEP 2. DEFINE YOUR PLUGIN COMMAND NUMBER --//
@@ -36,7 +36,7 @@ const TCHAR NPP_PLUGIN_NAME[] = TEXT("vi_bindings");
 //
 // Here define the number of your plugin commands
 //
-const int nbFunc = 2;
+const int nbFunc = 3;
 
 
 //
@@ -70,7 +70,12 @@ bool setCommand(size_t index, TCHAR *cmdName, PFUNCPLUGINCMD pFunc, ShortcutKey 
 //
 // Your plugin command functions
 //
-void hello();
-void helloDlg();
+void toggleVim();
+void toggleClipboard();
+void about();
+void vimReady();
+void vimBufferActivated();
+void vimSelectionChanged(HWND hwnd);
+void vimTextChanged(HWND hwnd, intptr_t pos, intptr_t len, bool inserted);
 
 #endif //PLUGINDEFINITION_H
