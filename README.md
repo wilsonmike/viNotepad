@@ -5,13 +5,13 @@ Vim keybindings for Notepad++ (8.4.3 or newer). The current mode shows in the st
 ## Install
 
 1. Install [Notepad++](https://notepad-plus-plus.org/downloads/).
-2. Build `viNotepad.dll` (below). Use the x64 build for 64-bit Notepad++, the default install.
-3. Close Notepad++ and copy the dll to `C:\Program Files\Notepad++\plugins\viNotepad\viNotepad.dll`. The folder must be named `viNotepad`.
+2. Download `viNotepad-x64.zip` from [Releases](https://github.com/wilsonmike/viNotepad/releases/latest). Use `viNotepad-Win32.zip` only for 32-bit Notepad++.
+3. Close Notepad++ and extract the zip into `C:\Program Files\Notepad++\plugins\`, so you get `plugins\viNotepad\viNotepad.dll`.
 4. Start Notepad++. Turn vim mode on or off with Plugins > viNotepad > Vim Mode.
 
-## Build
+## Build from source
 
-Needs Visual Studio 2022 (or Build Tools) with the C++ desktop workload. From a Developer Command Prompt:
+Only needed if you want to change the code. Needs Visual Studio 2022 (or Build Tools) with the C++ desktop workload. From a Developer Command Prompt:
 
 ```
 msbuild vs.proj\viNotepad.vcxproj /p:Configuration=Release /p:Platform=x64
